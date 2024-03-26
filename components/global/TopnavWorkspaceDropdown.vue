@@ -1,8 +1,14 @@
 <script setup lang="ts">
 import { onClickOutside } from "@vueuse/core";
-
-const { accounts, account, user } = useAccount();
-const { getContactsAccounts, getLogo } = useAccountFunc();
+const props = defineProps<{
+  account: any;
+  accounts: any;
+  user: any;
+  getContactsAccounts: any;
+  getLogo: any;
+}>();
+// const { accounts, account, user } = useAccount();
+// const { getContactsAccounts, getLogo } = useAccountFunc();
 const router = useRouter();
 onMounted(async () => {
   const test = process.env.NODE_ENV === "development";
