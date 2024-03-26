@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "devDependencies": {
+    "@cssninja/nuxt-toaster": "^0.3.12",
     "@fontsource-variable/fira-code": "^5.0.17",
     "@fontsource-variable/inter": "^5.0.17",
     "@fontsource-variable/karla": "^5.0.20",
@@ -52,7 +53,6 @@
     "clean": "rimraf .nuxt .output node_modules"
   },
   "dependencies": {
-    "@cssninja/nuxt-toaster": "^0.3.12",
     "@nuxt/devtools": "^1.0.8",
     "@nuxtjs/tailwindcss": "^6.3.1",
     "@vee-validate/zod": "^4.12.6",
