@@ -1,5 +1,5 @@
 {
-  "name": "tairo-quickstarter",
+  "name": "omni-components",
   "private": true,
   "type": "module",
   "devDependencies": {
@@ -72,6 +72,7 @@
     "maz-ui": "^3.36.1",
     "mobile-detect": "^1.4.5",
     "moment": "^2.30.1",
+    "nuxt-icon": "^0.6.10",
     "vee-validate": "^4.12.6",
     "vue-dragscroll": "^4.0.5",
     "vue-resizable": "^2.1.7",
