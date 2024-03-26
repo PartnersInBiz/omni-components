@@ -1,7 +1,13 @@
 import exposeColors from "./tailwind/plugin-expose-colors"
 
 export default defineNuxtConfig({
-  extends: ["@shuriken-ui/nuxt"],
+  extends: [
+    "@shuriken-ui/nuxt",
+    ["github:PartnersInBiz/omni-layout-collapse", { install: true }],
+    ["github:PartnersInBiz/omni-layout-dynamic", { install: true }],
+    ["github:PartnersInBiz/omni-layout-sidebar", { install: true }],
+    ["github:PartnersInBiz/omni-layout-topnav", { install: true }],
+  ],
   modules: ["@cssninja/nuxt-toaster"],
   plugins: [],
 
