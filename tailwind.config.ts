@@ -1,5 +1,5 @@
-import { withShurikenUI } from '@shuriken-ui/tailwind'
-import colors from 'tailwindcss/colors'
+import { withShurikenUI } from "@shuriken-ui/tailwind"
+import colors from "tailwindcss/colors"
 
 /**
  * This is the Tailwind config file for the demo.
@@ -8,22 +8,28 @@ import colors from 'tailwindcss/colors'
  * You can add/override your own customizations here.
  */
 export default withShurikenUI({
-  content: [],
+  content: [
+    "./components/**/*.{js,vue,ts}",
+    "./layouts/**/*.vue",
+    "./pages/**/*.vue",
+    "./plugins/**/*.{js,ts}",
+    "./nuxt.config.{js,ts}",
+  ],
   theme: {
     // Custom fonts (defaults values are commented out)
     fontFamily: {
-      sans: ['Inter  Variable', 'sans-serif'],
-      heading: ['Inter  Variable', 'sans-serif'],
-      alt: ['Karla  Variable', 'sans-serif'],
+      sans: ["Inter  Variable", "sans-serif"],
+      heading: ["Inter  Variable", "sans-serif"],
+      alt: ["Karla  Variable", "sans-serif"],
       mono: [
-        'ui-monospace',
-        'SFMono-Regular',
-        'Menlo',
-        'Monaco',
-        'Consolas',
+        "ui-monospace",
+        "SFMono-Regular",
+        "Menlo",
+        "Monaco",
+        "Consolas",
         '"Liberation Mono"',
         '"Courier New"',
-        'monospace',
+        "monospace",
       ],
     },
     extend: {
