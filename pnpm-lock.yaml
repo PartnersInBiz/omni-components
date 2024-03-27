@@ -56,9 +56,6 @@ dependencies:
   maz-ui:
     specifier: ^3.36.1
     version: 3.36.5(libphonenumber-js@1.10.59)(nuxt@3.11.1)(vue@3.4.21)
-  mobile-detect:
-    specifier: ^1.4.5
-    version: 1.4.5
   moment:
     specifier: ^2.30.1
     version: 2.30.1
@@ -6071,10 +6068,6 @@ packages:
       pathe: 1.1.2
       pkg-types: 1.0.3
       ufo: 1.5.3
-
-  /mobile-detect@1.4.5:
-    resolution: {integrity: sha512-yc0LhH6tItlvfLBugVUEtgawwFU2sIe+cSdmRJJCTMZ5GEJyLxNyC/NIOAOGk67Fa8GNpOttO3Xz/1bHpXFD/g==}
-    dev: false
 
   /moment@2.30.1:
     resolution: {integrity: sha512-uEmtNhbDOrWPFS+hdjFCBfy9f2YoyzRpwcl+DqpC6taX21FzsTLQVbMV/W7PzNSX6x/bhC1zA3c2UQ5NzH6how==}

@@ -7,8 +7,8 @@ const props = withDefaults(
     alt?: string;
   }>(),
   {
-    src: "/icons/light/logo.png",
-    srcDark: "/icons/dark/logo.png",
+    src: "/img/icons/animated/rocket.gif",
+    srcDark: "/img/icons/animated/rocket.gif",
     classes: "h-200 w-200",
     alt: "Omni",
   }

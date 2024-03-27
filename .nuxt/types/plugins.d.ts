@@ -22,7 +22,6 @@ type NuxtAppInjections =
   InjectionType<typeof import("../../node_modules/.pnpm/nuxt@3.11.1_@parcel+watcher@2.4.1_@types+node@20.11.30_@unocss+reset@0.58.7_floating-vue@5.2.2_unocss@0.58.7_vite@5.2.6/node_modules/nuxt/dist/app/plugins/chunk-reload.client").default> &
   InjectionType<typeof import("../../node_modules/.pnpm/nuxt@3.11.1_@parcel+watcher@2.4.1_@types+node@20.11.30_@unocss+reset@0.58.7_floating-vue@5.2.2_unocss@0.58.7_vite@5.2.6/node_modules/nuxt/dist/app/plugins/dev-server-logs.client").default> &
   InjectionType<typeof import("../../node_modules/.pnpm/nuxt@3.11.1_@parcel+watcher@2.4.1_@types+node@20.11.30_@unocss+reset@0.58.7_floating-vue@5.2.2_unocss@0.58.7_vite@5.2.6/node_modules/nuxt/dist/app/plugins/check-if-layout-used").default> &
-  InjectionType<typeof import("../../plugins/detect").default> &
   InjectionType<typeof import("../../plugins/directives").default> &
   InjectionType<typeof import("../../plugins/drag.client").default> &
   InjectionType<typeof import("../../plugins/flow.client").default> &

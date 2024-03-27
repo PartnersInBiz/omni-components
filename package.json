@@ -70,7 +70,6 @@
     "keycloak-js": "^24.0.1",
     "libphonenumber-js": "^1.10.58",
     "maz-ui": "^3.36.1",
-    "mobile-detect": "^1.4.5",
     "moment": "^2.30.1",
     "nuxt-icon": "^0.6.10",
     "vee-validate": "^4.12.6",
