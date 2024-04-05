@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const props = withDefaults(
+const divPropsLive = withDefaults(
   defineProps<{
     item_id: string;
     /**
@@ -36,6 +36,7 @@ const props = withDefaults(
      */
     lead?: "none" | "tight" | "snug" | "normal" | "relaxed" | "loose";
     innerText: string;
+    children?: object[];
   }>(),
   {
     size: undefined,
@@ -44,9 +45,9 @@ const props = withDefaults(
   }
 );
 
-const size = useNuiDefaultProperty(props, "BaseText", "size");
-const weight = useNuiDefaultProperty(props, "BaseText", "weight");
-const lead = useNuiDefaultProperty(props, "BaseText", "lead");
+const size = useNuiDefaultProperty(divPropsLive, "BaseText", "size");
+const weight = useNuiDefaultProperty(divPropsLive, "BaseText", "weight");
+const lead = useNuiDefaultProperty(divPropsLive, "BaseText", "lead");
 
 const sizes = {
   xs: "nui-content-xs",
@@ -88,6 +89,33 @@ const classes = computed(() => [
   weight.value && weights[weight.value],
   lead.value && leads[lead.value],
 ]);
+
+const isEditAppState = useState("isEditAppState", () => {
+  return false;
+});
+
+const { listenUp, removeListen } = useBuilders();
+
+watchEffect(() => {
+  if (isEditAppState.value) {
+    
+    setTimeout(() => {
+      listenUp(divPropsLive.item_id);
+    }, 1000);
+  } else {
+    removeListen(divPropsLive.item_id);
+  }
+});
+onMounted(() => {
+  if (isEditAppState.value) {
+    
+    setTimeout(() => {
+      listenUp(divPropsLive.item_id);
+    }, 1000);
+  } else {
+    removeListen(divPropsLive.item_id);
+  }
+});
 </script>
 
 <template>

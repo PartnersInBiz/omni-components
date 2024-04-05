@@ -1456,6 +1456,29 @@ const navigation = [
       },
     ],
   },
+  {
+    name: "Widgets",
+    subsidebarclean: [
+      {
+        name: "Creative",
+        icon: { name: "mdi:stadium-outline", class: "w-5 h-5" },
+        activePath: "/builders",
+        comp: "BuilderAppComponentsAddWidgetsCreative",
+      },
+      {
+        name: "Ui",
+        icon: { name: "mdi:stadium-outline", class: "w-5 h-5" },
+        activePath: "/builders",
+        comp: "BuilderAppComponentsAddWidgetsUi",
+      },
+      {
+        name: "Lists",
+        icon: { name: "mdi:stadium-outline", class: "w-5 h-5" },
+        activePath: "/builders",
+        comp: "BuilderAppComponentsAddWidgetsList",
+      },
+    ]
+  }
   // {
   //   name: "Weather",
   //   subsidebar: [

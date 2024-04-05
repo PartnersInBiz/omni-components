@@ -1,6 +1,6 @@
 export function useNuiDefaultProperty<
   T extends Record<string, unknown>,
-  K extends keyof T
+  K extends keyof T,
 >(properties: T, component: string, property: K): Ref<T[K]> {
   const config = useAppConfig().nui as any
   return computed(() => {

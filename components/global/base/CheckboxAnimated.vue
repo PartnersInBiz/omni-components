@@ -8,17 +8,17 @@ const props = withDefaults(
     /**
      * The value of the component.
      */
-    value?: T
+    value?: any
 
     /**
      * The value to set when the component is checked.
      */
-    trueValue?: T
+    trueValue?: any
 
     /**
      * The value to set when the component is unchecked.
      */
-    falseValue?: T
+    falseValue?: any
 
     /**
      * The form input identifier.
@@ -94,8 +94,8 @@ const checked = computed(() => {
   return props.value === undefined
     ? false
     : Array.isArray(modelValue.value)
-      ? modelValue.value.includes(props.value)
-      : modelValue.value === props.value
+    ? modelValue.value.includes(props.value)
+    : modelValue.value === props.value
 })
 
 const colors = {

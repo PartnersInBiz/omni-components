@@ -49,16 +49,43 @@ const changeData = computed(() => {
 });
 
 const classes = computed(() => divPropsLive.class);
+
+const isEditAppState = useState("isEditAppState", () => {
+  return false;
+});
+
+const { listenUp, removeListen } = useBuilders();
+
+watchEffect(() => {
+  if (isEditAppState.value) {
+    
+    setTimeout(() => {
+      listenUp(divPropsLive.item_id);
+    }, 1000);
+  } else {
+    removeListen(divPropsLive.item_id);
+  }
+});
+onMounted(() => {
+  if (isEditAppState.value) {
+    
+    setTimeout(() => {
+      listenUp(divPropsLive.item_id);
+    }, 1000);
+  } else {
+    removeListen(divPropsLive.item_id);
+  }
+});
 </script>
 
 <template>
-  <div :id="item_id" :class="classes" :style="style" @click.prevent="clickDiv">
+  <div :id="item_id" :class="classes" :style="style" >
     <div
       :id="item_id"
       :class="classes"
       :style="style"
-      @click.prevent="clickDiv"
-      v-html="schema.innerText"
+      
+      v-html="innerText"
     />
   </div>
 </template>

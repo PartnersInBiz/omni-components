@@ -32,6 +32,26 @@ const divPropsLive = defineProps({
       return {};
     },
   },
+  x: {
+    type: String,
+    default: "0",
+  },
+  y: {
+    type: String,
+    default: "0",
+  },
+  width: {
+    type: String,
+    default: "100%",
+  },
+  height: {
+    type: String,
+    default: "100%",
+  },
+  rx: {
+    type: String,
+    default: "0",
+  },
 });
 
 const changeData = computed(() => {
@@ -49,6 +69,33 @@ const changeData = computed(() => {
 });
 
 const classes = computed(() => divPropsLive.class);
+
+const isEditAppState = useState("isEditAppState", () => {
+  return false;
+});
+
+const { listenUp, removeListen } = useBuilders();
+
+watchEffect(() => {
+  if (isEditAppState.value) {
+    
+    setTimeout(() => {
+      listenUp(divPropsLive.item_id);
+    }, 1000);
+  } else {
+    removeListen(divPropsLive.item_id);
+  }
+});
+onMounted(() => {
+  if (isEditAppState.value) {
+    
+    setTimeout(() => {
+      listenUp(divPropsLive.item_id);
+    }, 1000);
+  } else {
+    removeListen(divPropsLive.item_id);
+  }
+});
 </script>
 
 <template>
@@ -56,12 +103,11 @@ const classes = computed(() => divPropsLive.class);
     :id="item_id"
     :class="classes"
     :style="style"
-    :x="schema.x"
-    :y="schema.y"
-    :width="schema.width"
-    :height="schema.height"
-    :rx="schema.rx"
-    @click.prevent="clickDiv"
+    :x="x"
+    :y="y"
+    :width="width"
+    :height="height"
+    :rx="rx"
   >
     {{ changeData }}
     <component

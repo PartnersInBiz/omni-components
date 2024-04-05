@@ -46,6 +46,14 @@ const divPropsLive = defineProps({
     type: String,
     default: "",
   },
+  strokelinecap: {
+    type: String,
+    default: "",
+  },
+  strokelinejoin: {
+    type: String,
+    default: "",
+  },
 
   data: {
     type: Object,
@@ -70,8 +78,34 @@ const changeData = computed(() => {
 });
 
 const classes = computed(() => divPropsLive.class);
-</script>
 
+const isEditAppState = useState("isEditAppState", () => {
+  return false;
+});
+
+const { listenUp, removeListen } = useBuilders();
+
+watchEffect(() => {
+  if (isEditAppState.value) {
+    
+    setTimeout(() => {
+      listenUp(divPropsLive.item_id);
+    }, 1000);
+  } else {
+    removeListen(divPropsLive.item_id);
+  }
+});
+onMounted(() => {
+  if (isEditAppState.value) {
+    
+    setTimeout(() => {
+      listenUp(divPropsLive.item_id);
+    }, 1000);
+  } else {
+    removeListen(divPropsLive.item_id);
+  }
+});
+</script>
 <template>
   <g
     :id="item_id"
@@ -79,9 +113,11 @@ const classes = computed(() => divPropsLive.class);
     :fill="fill"
     :stroke="stroke"
     :stroke-width="strokewidth"
+    :stroke-linecap="strokelinecap"
+    :stroke-linejoin="strokelinejoin"
     :fill-rule="fillrule"
     :class="classes"
-    @click.prevent="clickDiv"
+    
   >
     {{ changeData }}
     <component

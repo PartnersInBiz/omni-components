@@ -34,11 +34,14 @@ const props = withDefaults(
      * @default 'normal'
      */
     lead?: 'none' | 'tight' | 'snug' | 'normal' | 'relaxed' | 'loose'
+
+    innerText?: string
   }>(),
   {
     size: undefined,
     weight: undefined,
     lead: undefined,
+    innerText: '',
   },
 )
 
@@ -90,6 +93,7 @@ const classes = computed(() => [
 
 <template>
   <span :class="classes">
+    {{innerText}}
     <slot></slot>
   </span>
 </template>

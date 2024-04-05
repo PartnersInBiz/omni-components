@@ -1,23 +1,23 @@
-import { z } from "zod"
+import { z } from 'zod'
 export const useForms = () => {
   const parseRule = (rule: string) => {
-    const parts = rule.split("|")
+    const parts = rule.split('|')
     let schema = z.string() // Default to string schema
 
     for (const part of parts) {
-      if (part === "required") {
+      if (part === 'required') {
         schema = schema.nonempty()
-      } else if (part.startsWith("min:")) {
-        const min = parseInt(part.split(":")[1])
+      } else if (part.startsWith('min:')) {
+        const min = parseInt(part.split(':')[1])
         schema = schema.min(min)
-      } else if (part.startsWith("max:")) {
-        const max = parseInt(part.split(":")[1])
+      } else if (part.startsWith('max:')) {
+        const max = parseInt(part.split(':')[1])
         schema = schema.max(max)
-      } else if (part === "email") {
+      } else if (part === 'email') {
         schema = schema.email()
-      } else if (part === "url") {
+      } else if (part === 'url') {
         schema = schema.url()
-      } else if (part === "optional") {
+      } else if (part === 'optional') {
       }
     }
 
@@ -30,18 +30,18 @@ export const useForms = () => {
         rules.reduce(
           (
             acc: { [x: string]: z.ZodString },
-            rule: { field: string | number; rule: string }
+            rule: { field: string | number; rule: string },
           ) => {
             acc[rule.field] = parseRule(rule.rule)
             return acc
           },
-          {} as Record<string, any>
-        )
+          {} as Record<string, any>,
+        ),
       ),
     }).superRefine((data, ctx) => {
       for (const rule of superRefine) {
         if (
-          rule.type === "includes" &&
+          rule.type === 'includes' &&
           data.event[rule.field].includes(data.event[rule.value])
         ) {
           ctx.addIssue({
@@ -50,7 +50,7 @@ export const useForms = () => {
             path: rule.path,
           })
         } else if (
-          rule.type === "!match" &&
+          rule.type === '!match' &&
           data.event[rule.field] !== data.event[rule.value]
         ) {
           ctx.addIssue({
@@ -59,7 +59,7 @@ export const useForms = () => {
             path: rule.path,
           })
         } else if (
-          rule.type === "match" &&
+          rule.type === 'match' &&
           data.event[rule.field] === data.event[rule.value]
         ) {
           ctx.addIssue({

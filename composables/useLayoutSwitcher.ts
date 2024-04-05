@@ -4,28 +4,28 @@
  * Layout components are imported below to be made available to the composable.
  */
 
-import { CollapseLayout, SidebarLayout, TopnavLayout } from "#components"
+import { CollapseLayout, SidebarLayout, TopnavLayout } from '#components'
 
 export function useLayoutSwitcher() {
   const layouts = [
     {
-      name: "sidebar",
-      label: "Sidebar",
+      name: 'sidebar',
+      label: 'Sidebar',
       component: SidebarLayout,
     },
     {
-      name: "collapse",
-      label: "Collapse",
+      name: 'collapse',
+      label: 'Collapse',
       component: CollapseLayout,
     },
     {
-      name: "topnav",
-      label: "Top navigation",
+      name: 'topnav',
+      label: 'Top navigation',
       component: TopnavLayout,
     },
   ] as const
 
-  const activeLayoutName = useState("layout-switcher-active", () => "sidebar")
+  const activeLayoutName = useState('layout-switcher-active', () => 'sidebar')
   const activeLayout = computed(() => {
     return layouts.find((layout) => layout.name === activeLayoutName.value)
   })

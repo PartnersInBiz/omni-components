@@ -1,4 +1,4 @@
-import { useCssVar, type MaybeRefOrGetter, useMediaQuery } from "@vueuse/core"
+import { useCssVar, type MaybeRefOrGetter, useMediaQuery } from '@vueuse/core'
 
 const rgbRe = /(\d+) (\d+) (\d+)/
 
@@ -29,29 +29,29 @@ function useCssVarWithRGB(name: MaybeRefOrGetter<string>) {
  */
 export function useTailwindColors() {
   const primary = process.server
-    ? ref("transparent")
-    : useCssVarWithRGB("--color-primary-500")
+    ? ref('transparent')
+    : useCssVarWithRGB('--color-primary-500')
   const success = process.server
-    ? ref("transparent")
-    : useCssVarWithRGB("--color-success-500")
+    ? ref('transparent')
+    : useCssVarWithRGB('--color-success-500')
   const info = process.server
-    ? ref("transparent")
-    : useCssVarWithRGB("--color-info-500")
+    ? ref('transparent')
+    : useCssVarWithRGB('--color-info-500')
   const warning = process.server
-    ? ref("transparent")
-    : useCssVarWithRGB("--color-warning-500")
+    ? ref('transparent')
+    : useCssVarWithRGB('--color-warning-500')
   const danger = process.server
-    ? ref("transparent")
-    : useCssVarWithRGB("--color-danger-500")
+    ? ref('transparent')
+    : useCssVarWithRGB('--color-danger-500')
   const yellow = process.server
-    ? ref("transparent")
-    : useCssVarWithRGB("--color-yellow-400")
+    ? ref('transparent')
+    : useCssVarWithRGB('--color-yellow-400')
   const title = process.server
-    ? ref("transparent")
-    : useCssVarWithRGB("--color-muted-600")
+    ? ref('transparent')
+    : useCssVarWithRGB('--color-muted-600')
   const subtitle = process.server
-    ? ref("transparent")
-    : useCssVarWithRGB("--color-muted-400")
+    ? ref('transparent')
+    : useCssVarWithRGB('--color-muted-400')
 
   return {
     primary,
@@ -69,18 +69,18 @@ export function useTailwindColors() {
  * This function is used to expose Tailwind breakpoints as reactive variables.
  */
 export function useTailwindBreakpoints() {
-  const xs = useMediaQuery("(max-width: 639px)")
-  const sm = useMediaQuery("(min-width: 640px)")
-  const md = useMediaQuery("(min-width: 768px)")
-  const lg = useMediaQuery("(min-width: 1025px)")
+  const xs = useMediaQuery('(max-width: 639px)')
+  const sm = useMediaQuery('(min-width: 640px)')
+  const md = useMediaQuery('(min-width: 768px)')
+  const lg = useMediaQuery('(min-width: 1025px)')
   const ptablet = useMediaQuery(
-    "(min-width: 768px) and (max-width: 1024px) and (orientation: portrait)"
+    '(min-width: 768px) and (max-width: 1024px) and (orientation: portrait)',
   )
   const ltablet = useMediaQuery(
-    "(min-width: 768px) and (max-width: 1024px) and (orientation: landscape)"
+    '(min-width: 768px) and (max-width: 1024px) and (orientation: landscape)',
   )
-  const xl = useMediaQuery("(min-width: 1280px)")
-  const doublexl = useMediaQuery("(min-width: 1536px)")
+  const xl = useMediaQuery('(min-width: 1280px)')
+  const doublexl = useMediaQuery('(min-width: 1536px)')
 
   return {
     xs,

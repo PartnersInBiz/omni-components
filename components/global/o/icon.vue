@@ -53,6 +53,33 @@ const changeData = computed(() => {
 });
 
 const classes = computed(() => divPropsLive.class);
+
+const isEditAppState = useState("isEditAppState", () => {
+  return false;
+});
+
+const { listenUp, removeListen } = useBuilders();
+
+watchEffect(() => {
+  if (isEditAppState.value) {
+    
+    setTimeout(() => {
+      listenUp(divPropsLive.item_id);
+    }, 1000);
+  } else {
+    removeListen(divPropsLive.item_id);
+  }
+});
+onMounted(() => {
+  if (isEditAppState.value) {
+    
+    setTimeout(() => {
+      listenUp(divPropsLive.item_id);
+    }, 1000);
+  } else {
+    removeListen(divPropsLive.item_id);
+  }
+});
 </script>
 
 <template>
@@ -62,6 +89,5 @@ const classes = computed(() => divPropsLive.class);
     :style="style"
     :name="innerText"
     :size="size ? size : '1.5rem'"
-    @click="clickDiv"
   />
 </template>

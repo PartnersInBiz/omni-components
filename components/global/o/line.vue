@@ -32,6 +32,22 @@ const divPropsLive = defineProps({
       return {};
     },
   },
+  x1: {
+    type: String,
+    default: "0",
+  },
+  y1: {
+    type: String,
+    default: "0",
+  },
+  x2: {
+    type: String,
+    default: "100%",
+  },
+  y2: {
+    type: String,
+    default: "100%",
+  },
 });
 
 const changeData = computed(() => {
@@ -49,18 +65,45 @@ const changeData = computed(() => {
 });
 
 const classes = computed(() => divPropsLive.class);
+
+const isEditAppState = useState("isEditAppState", () => {
+  return false;
+});
+
+const { listenUp, removeListen } = useBuilders();
+
+watchEffect(() => {
+  if (isEditAppState.value) {
+    
+    setTimeout(() => {
+      listenUp(divPropsLive.item_id);
+    }, 1000);
+  } else {
+    removeListen(divPropsLive.item_id);
+  }
+});
+onMounted(() => {
+  if (isEditAppState.value) {
+    
+    setTimeout(() => {
+      listenUp(divPropsLive.item_id);
+    }, 1000);
+  } else {
+    removeListen(divPropsLive.item_id);
+  }
+});
 </script>
 
 <template>
   <line
     :id="item_id"
-    :x1="schema.x1"
-    :y1="schema.y1"
-    :x2="schema.x2"
-    :y2="schema.y2"
+    :x1="x1"
+    :y1="y1"
+    :x2="x2"
+    :y2="y2"
     :class="classes"
     :style="style"
-    @click.prevent="clickDiv"
+    
   >
     {{ changeData }}
     <component

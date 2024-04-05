@@ -41,12 +41,14 @@ const props = withDefaults(
      * @default 'normal'
      */
     lead?: 'none' | 'tight' | 'snug' | 'normal' | 'relaxed' | 'loose'
+    innerText?: string
   }>(),
   {
     as: undefined,
     size: undefined,
     weight: undefined,
     lead: undefined,
+    innerText: '',
   },
 )
 
@@ -99,6 +101,7 @@ const classes = computed(() => [
 
 <template>
   <component :is="props.as ? props.as : as" :class="classes">
+    {{innerText}}
     <slot></slot>
   </component>
 </template>

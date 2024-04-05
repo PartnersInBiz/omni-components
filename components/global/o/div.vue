@@ -36,7 +36,7 @@ const props = withDefaults(
      */
     lead?: "none" | "tight" | "snug" | "normal" | "relaxed" | "loose";
     innerText: string;
-    children?: string[];
+    children?: object[];
     class: string;
   }>(),
   {
@@ -92,6 +92,33 @@ const classes = computed(() => [
   lead.value && leads[lead.value],
   props.class,
 ]);
+
+const isEditAppState = useState("isEditAppState", () => {
+  return false;
+});
+
+const { listenUp, removeListen } = useBuilders();
+
+watchEffect(() => {
+  if (isEditAppState.value) {
+    
+    setTimeout(() => {
+      listenUp(props.item_id);
+    }, 1000);
+  } else {
+    removeListen(props.item_id);
+  }
+});
+onMounted(() => {
+  if (isEditAppState.value) {
+    
+    setTimeout(() => {
+      listenUp(props.item_id);
+    }, 1000);
+  } else {
+    removeListen(props.item_id);
+  }
+});
 </script>
 
 <template>

@@ -136,10 +136,8 @@ const onSubmit = handleSubmit(
       // fake delay, this will make isSubmitting value to be true
       values.contact.avatar = currentAvatar.value
 
-      console.log('values', values.contact)
 
       values.contact.tools = tools.value
-      console.log('values', values.contact)
 
       let data: any = {}
       if (props.isEditModal) {
@@ -159,7 +157,6 @@ const onSubmit = handleSubmit(
         closable: true,
       })
     } catch (error: any) {
-      console.log('error', error)
       // this will set the error on the form
       if (error.message === 'Fake backend validation error') {
         // @ts-expect-error - vee validate typing bug with nested keys

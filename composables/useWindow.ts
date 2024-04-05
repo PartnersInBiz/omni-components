@@ -1,12 +1,12 @@
-import type { MaybeRefOrGetter } from "vue"
-import { useEventListener } from "@vueuse/core"
+import type { MaybeRefOrGetter } from 'vue'
+import { useEventListener } from '@vueuse/core'
 /**
  * Scrollspy allows you to watch visible headings in a specific page.
  * Useful for table of contents live style updates.
  */
 export const useNinjaScrollspy = (
   _options?: MaybeRefOrGetter<IntersectionObserverInit>,
-  _selectors?: MaybeRefOrGetter<string[]>
+  _selectors?: MaybeRefOrGetter<string[]>,
 ) => {
   const options = toRef(_options)
   const selectors = toRef(_selectors)
@@ -58,7 +58,7 @@ export const useNinjaScrollspy = (
           timer = setTimeout(() => {
             if (selectors.value) {
               const element = document.querySelectorAll(
-                selectors.value.join(", ")
+                selectors.value.join(', '),
               )
               updateElements([...element])
             }
@@ -67,7 +67,7 @@ export const useNinjaScrollspy = (
       },
       {
         immediate: true,
-      }
+      },
     )
   }
 
@@ -94,7 +94,7 @@ export function useNinjaWindowScroll() {
   if (process.client) {
     useEventListener(
       window,
-      "scroll",
+      'scroll',
       () => {
         x.value = window.scrollX
         y.value = window.scrollY
@@ -102,7 +102,7 @@ export function useNinjaWindowScroll() {
       {
         capture: false,
         passive: true,
-      }
+      },
     )
     onMounted(() => {
       x.value = window.scrollX

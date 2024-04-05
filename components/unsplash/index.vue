@@ -45,7 +45,6 @@ const unsplashInstance: any = getCurrentInstance();
 const selected: any = ref([]);
 const selectedDocs: any = ref([]);
 function submitDocs() {
-  console.log(selectedDocs.value);
   unsplashInstance.emit("input", selectedDocs.value);
 }
 
@@ -54,7 +53,6 @@ function isSelected(id: string) {
 }
 
 function onUpdateCurrentPage(ctPage: number) {
-  console.log("CURR", ctPage);
   currentPage.value = ctPage;
 }
 
@@ -65,7 +63,6 @@ function select(img: { id: any; src: string; alt_description: string }) {
     selectedDocs.value.splice(index, 1);
     submitDocs();
   } else {
-    console.log("selected", img);
     selected.value.push(img.id);
     selectedDocs.value.push({
       src: img.src,

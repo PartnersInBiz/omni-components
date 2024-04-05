@@ -26,6 +26,27 @@ const divPropsLive = defineProps({
       return [];
     },
   },
+  strokelinecap: {
+    type: String,
+    default: "round",
+  },
+  strokelinejoin: {
+    type: String,
+    default: "round",
+  },
+  strokewidth: {
+    type: String,
+    default: "2",
+  },
+  fill: {
+    type: String,
+    default: "none",
+  },
+  d: {
+    type: String,
+    default: "",
+  },
+
   data: {
     type: Object,
     default: () => {
@@ -35,6 +56,33 @@ const divPropsLive = defineProps({
 });
 
 const classes = computed(() => divPropsLive.class);
+
+const isEditAppState = useState("isEditAppState", () => {
+  return false;
+});
+
+const { listenUp, removeListen } = useBuilders();
+
+watchEffect(() => {
+  if (isEditAppState.value) {
+    
+    setTimeout(() => {
+      listenUp(divPropsLive.item_id);
+    }, 1000);
+  } else {
+    removeListen(divPropsLive.item_id);
+  }
+});
+onMounted(() => {
+  if (isEditAppState.value) {
+    
+    setTimeout(() => {
+      listenUp(divPropsLive.item_id);
+    }, 1000);
+  } else {
+    removeListen(divPropsLive.item_id);
+  }
+});
 </script>
 
 <template>
@@ -42,11 +90,11 @@ const classes = computed(() => divPropsLive.class);
     :id="item_id"
     :class="classes"
     :style="style"
-    :stroke-linecap="schema.strokelinecap"
-    :stroke-linejoin="schema.strokelinejoin"
-    :stroke-width="schema.strokewidth"
-    :fill="schema.fill"
-    :d="schema.d"
+    :stroke-linecap="strokelinecap"
+    :stroke-linejoin="strokelinejoin"
+    :stroke-width="strokewidth"
+    :fill="fill"
+    :d="d"
   >
     <component
       :is="comp.comp"

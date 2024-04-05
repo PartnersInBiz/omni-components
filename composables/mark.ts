@@ -1,11 +1,11 @@
-import type { MaybeRefOrGetter } from "vue"
+import type { MaybeRefOrGetter } from 'vue'
 // eslint-disable-next-line vue/prefer-import-from-vue
-import { escapeHtml } from "@vue/shared"
+import { escapeHtml } from '@vue/shared'
 
 export function useNinjaMark(
   _text?: MaybeRefOrGetter<string | undefined>,
   _search?: MaybeRefOrGetter<string | undefined>,
-  _classes?: MaybeRefOrGetter<string | undefined>
+  _classes?: MaybeRefOrGetter<string | undefined>,
 ) {
   const text = toRef(_text)
   const classes = toRef(_classes)
@@ -15,14 +15,14 @@ export function useNinjaMark(
     const txt = unref(text)
     const srch = unref(search)
     if (!txt) {
-      return ""
+      return ''
     }
 
     if (!srch) {
       return escapeHtml(txt)
     }
 
-    const regex = new RegExp(srch, "gi")
+    const regex = new RegExp(srch, 'gi')
 
     return txt.replace(regex, (part) => {
       return `<mark class="${classes.value}">${escapeHtml(part)}</mark>`

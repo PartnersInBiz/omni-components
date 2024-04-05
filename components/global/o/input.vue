@@ -32,6 +32,14 @@ const divPropsLive = defineProps({
       return {};
     },
   },
+  type: {
+    type: String,
+    default: "text",
+  },
+  placeholder: {
+    type: String,
+    default: "",
+  },
 });
 
 const changeData = computed(() => {
@@ -49,13 +57,41 @@ const changeData = computed(() => {
 });
 
 const classes = computed(() => divPropsLive.class);
+
+const isEditAppState = useState("isEditAppState", () => {
+  return false;
+});
+
+const { listenUp, removeListen } = useBuilders();
+
+watchEffect(() => {
+  if (isEditAppState.value) {
+    
+    setTimeout(() => {
+      listenUp(divPropsLive.item_id);
+    }, 1000);
+  } else {
+    removeListen(divPropsLive.item_id);
+  }
+});
+onMounted(() => {
+  if (isEditAppState.value) {
+    
+    setTimeout(() => {
+      listenUp(divPropsLive.item_id);
+    }, 1000);
+  } else {
+    removeListen(divPropsLive.item_id);
+  }
+});
 </script>
 
 <template>
   <input
     :class="classes"
     :style="style"
-    :type="schema.type"
-    :placeholder="schema.placeholder"
+    :type="type"
+    :placeholder="placeholder"
+    :id="item_id"
   />
 </template>

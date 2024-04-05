@@ -1,4 +1,4 @@
-import { defu } from "defu"
+import { defu } from 'defu'
 
 /**
  * Composable to manage panels
@@ -43,19 +43,19 @@ export function usePanels() {
     () =>
       app.tairo?.panels?.map((panel: any) => ({
         ...panel,
-        position: (panel as any).position ?? "left",
+        position: (panel as any).position ?? 'left',
         overlay: (panel as any).overlay ?? true,
-      })) ?? []
+      })) ?? [],
   )
 
-  const currentName = useState("panels-current-name", () => "")
+  const currentName = useState('panels-current-name', () => '')
 
   // we need to know from which side the panel is coming from
   // and preserve it in the state so we can animate it when it's closing
-  const transitionFrom = useState("panels-transition-from", () => "left")
-  const showOverlay = useState("panels-overlay", () => true)
+  const transitionFrom = useState('panels-transition-from', () => 'left')
+  const showOverlay = useState('panels-overlay', () => true)
 
-  const currentProps = useState("panels-current-props", () => ({}))
+  const currentProps = useState('panels-current-props', () => ({}))
 
   const current = computed(() => {
     if (!currentName.value) {
@@ -63,7 +63,7 @@ export function usePanels() {
     }
 
     return panels.value.find(
-      (panel: { name: string }) => panel.name === currentName.value
+      (panel: { name: string }) => panel.name === currentName.value,
     )
   })
 
@@ -79,7 +79,7 @@ export function usePanels() {
     }
   }
   function close() {
-    currentName.value = ""
+    currentName.value = ''
   }
 
   return {

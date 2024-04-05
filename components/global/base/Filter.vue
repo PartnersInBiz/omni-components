@@ -1,84 +1,84 @@
 <script setup lang="ts">
-import { string } from "zod";
+import { string } from 'zod'
 
 const props = withDefaults(
   defineProps<{
-    className: string;
-    withFields: string;
-    withWhere: any;
-    limit?: number;
-    offset?: number;
-    displayValues?: any;
-    filterValue?: string;
+    className: string
+    withFields: string
+    withWhere: any
+    limit?: number
+    offset?: number
+    displayValues?: any
+    filterValue?: string
   }>(),
   {
     limit: 10,
     offset: 0,
-  }
-);
-const items = ref([]);
+  },
+)
+const items = ref([])
 
-const search = ref("");
-const itemSelected = ref(false);
+const search = ref('')
+const itemSelected = ref(false)
 
 const filteredCustomers: any = computed(() => {
   if (!search.value) {
-    return [];
+    return []
   }
 
   return items.value
     .filter((item: any) => {
       return (
-        item[props.displayValues[0]]?.match(new RegExp(search.value, "i")) ||
-        item[props.displayValues[1]]?.match(new RegExp(search.value, "i"))
-      );
+        item[props.displayValues[0]]?.match(new RegExp(search.value, 'i')) ||
+        item[props.displayValues[1]]?.match(new RegExp(search.value, 'i'))
+      )
     })
-    .splice(0, 4);
-});
+    .splice(0, 4)
+})
 
-const { SearchPaginateAll } = useWeaviateSearch();
+const { SearchPaginateAll } = useWeaviateSearch()
 
 watch(
   () => search.value,
   async () => {
-    let withWhere = props.withWhere;
+    let withWhere = props.withWhere
 
     withWhere = {
-      operator: "And",
+      operator: 'And',
       operands: [
         ...withWhere.operands,
         {
           path: [props.filterValue],
-          operator: "GreaterThanEqual",
+          operator: 'GreaterThanEqual',
           valueText: search.value,
         },
       ],
-    };
-    console.log("withWhere", withWhere);
+    }
+    console.log('withWhere', withWhere)
     let rec = await SearchPaginateAll(
       props.className,
       props.withFields,
       withWhere,
       props.limit,
-      props.offset
-    );
-    items.value = rec;
-    console.log(rec);
-  }
-);
+      props.offset,
+    )
+    items.value = rec
+    console.log(rec)
+  },
+)
 
-const em: any = getCurrentInstance()?.emit;
-const item: any = ref(null);
+const em: any = getCurrentInstance()?.emit
+const item: any = ref(null)
 function selectCustomer(itemData: any) {
-  em("selected", itemData);
-  itemSelected.value = true;
-  item.value = itemData;
-  search.value = "";
+  em('selected', itemData)
+  itemSelected.value = true
+  item.value = itemData
+  search.value = ''
 }
 
 function dismissCustomer() {
-  itemSelected.value = false;
-  item.value = "";
+  itemSelected.value = false
+  item.value = ''
 }
 </script>
 
@@ -121,7 +121,7 @@ function dismissCustomer() {
       </div>
       <div class="me-3 ms-auto">
         <BaseButtonIcon small shape="full" @click="dismissCustomer">
-          <Icon name="lucide:x" class="w-4 h-4" />
+          <Icon name="lucide:x" class="size-4" />
         </BaseButtonIcon>
       </div>
     </div>
@@ -170,7 +170,7 @@ function dismissCustomer() {
           </div>
           <div class="ms-auto">
             <BaseButtonIcon small shape="full" @click="selectCustomer(item)">
-              <Icon name="lucide:plus" class="w-4 h-4" />
+              <Icon name="lucide:plus" class="size-4" />
             </BaseButtonIcon>
           </div>
         </div>

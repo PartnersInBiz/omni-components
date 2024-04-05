@@ -26,6 +26,22 @@ const divPropsLive = defineProps({
       return [];
     },
   },
+  type: {
+    type: String,
+    default: "",
+  },
+  src: {
+    type: String,
+    default: "",
+  },
+  width: {
+    type: String,
+    default: "",
+  },
+  height: {
+    type: String,
+    default: "",
+  },
   data: {
     type: Object,
     default: () => {
@@ -47,13 +63,35 @@ const changeData = computed(() => {
   }
   return text;
 });
+
+const isEditAppState = useState("isEditAppState", () => {
+  return false;
+});
+
+const { listenUp, removeListen } = useBuilders();
+
+watchEffect(() => {
+  if (isEditAppState.value) {
+    
+    setTimeout(() => {
+      listenUp(divPropsLive.item_id);
+    }, 1000);
+  } else {
+    removeListen(divPropsLive.item_id);
+  }
+});
+onMounted(() => {
+  if (isEditAppState.value) {
+    
+    setTimeout(() => {
+      listenUp(divPropsLive.item_id);
+    }, 1000);
+  } else {
+    removeListen(divPropsLive.item_id);
+  }
+});
 </script>
 
 <template>
-  <embed
-    :type="schema.type"
-    :src="schema.src"
-    :width="schema.width"
-    :height="schema.height"
-  />
+  <embed :type="type" :src="src" :width="width" :height="height" />
 </template>
