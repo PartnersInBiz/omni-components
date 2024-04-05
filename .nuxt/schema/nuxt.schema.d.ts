@@ -691,7 +691,7 @@ export interface NuxtCustomSchema {
      * 
      * @default "default"
     */
-    color?: 'default' | 'default-contrast' | 'dark' | 'light' | 'black' | 'primary' | 'info' | 'success' | 'warning' | 'danger' | 'none',
+    color?: 'default' | 'default-contrast' | 'muted' | 'muted-contrast' | 'dark' | 'light' | 'black' | 'primary' | 'info' | 'success' | 'warning' | 'danger' | 'none',
 
     /**
      * The radius of the icon box.
@@ -758,6 +758,22 @@ export interface NuxtCustomSchema {
      * @default "sm"
     */
     rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full',
+
+    /**
+     * The default icons of the message.
+     * 
+    */
+    defaultIcons?: {
+                default?: string
+                'default-contrast'?: string
+                muted?: string
+                'muted-contrast'?: string
+                info?: string
+                success?: string
+                warning?: string
+                danger?: string
+                primary?: string
+              },
    },
 
    BasePagination?: {
@@ -871,7 +887,7 @@ export interface NuxtCustomSchema {
      * 
      * @default "default"
     */
-    color?: 'default' | 'muted',
+    color?: 'default' | 'default-contrast' | 'muted' | 'muted-contrast',
 
     /**
      * The size of the snack.
@@ -1123,6 +1139,12 @@ export interface NuxtCustomSchema {
      * @default "md"
     */
     size?: 'sm' | 'md' | 'lg',
+
+    /**
+     * The translation strings for the input file.
+     * 
+    */
+    i18n?: { empty: string; invalid: string; multiple: string },
    },
 
    BaseInputFileHeadless?: any,
@@ -1148,6 +1170,15 @@ export interface NuxtCustomSchema {
      * @default "md"
     */
     size?: 'sm' | 'md' | 'lg',
+   },
+
+   BaseInputHelpText?: {
+    /**
+     * The color of the text.
+     * 
+     * @default "default"
+    */
+    color?: 'default' | 'default-contrast' | 'muted' | 'muted-contrast' | 'light' | 'dark' | 'black' | 'primary' | 'info' | 'success' | 'warning' | 'danger' | 'none',
    },
 
    BaseListbox?: {

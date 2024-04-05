@@ -1483,7 +1483,7 @@
                   "title": "The color of the icon box.",
                   "description": "",
                   "tags": [],
-                  "tsType": "'default' | 'default-contrast' | 'dark' | 'light' | 'black' | 'primary' | 'info' | 'success' | 'warning' | 'danger' | 'none'",
+                  "tsType": "'default' | 'default-contrast' | 'muted' | 'muted-contrast' | 'dark' | 'light' | 'black' | 'primary' | 'info' | 'success' | 'warning' | 'danger' | 'none'",
                   "id": "#appConfig/nui/BaseIconBox/color",
                   "default": "default",
                   "type": "string"
@@ -1597,12 +1597,89 @@
                   "id": "#appConfig/nui/BaseMessage/rounded",
                   "default": "sm",
                   "type": "string"
+                },
+                "defaultIcons": {
+                  "title": "The default icons of the message.",
+                  "description": "",
+                  "tags": [],
+                  "tsType": "{\n            default?: string\n            'default-contrast'?: string\n            muted?: string\n            'muted-contrast'?: string\n            info?: string\n            success?: string\n            warning?: string\n            danger?: string\n            primary?: string\n          }",
+                  "id": "#appConfig/nui/BaseMessage/defaultIcons",
+                  "properties": {
+                    "muted": {
+                      "type": "string",
+                      "id": "#appConfig/nui/BaseMessage/defaultIcons/muted",
+                      "default": "akar-icons:info-fill"
+                    },
+                    "muted-contrast": {
+                      "type": "string",
+                      "id": "#appConfig/nui/BaseMessage/defaultIcons/muted-contrast",
+                      "default": "akar-icons:info-fill"
+                    },
+                    "default": {
+                      "type": "string",
+                      "id": "#appConfig/nui/BaseMessage/defaultIcons/default",
+                      "default": "akar-icons:info-fill"
+                    },
+                    "default-contrast": {
+                      "type": "string",
+                      "id": "#appConfig/nui/BaseMessage/defaultIcons/default-contrast",
+                      "default": "akar-icons:info-fill"
+                    },
+                    "info": {
+                      "type": "string",
+                      "id": "#appConfig/nui/BaseMessage/defaultIcons/info",
+                      "default": "akar-icons:info-fill"
+                    },
+                    "success": {
+                      "type": "string",
+                      "id": "#appConfig/nui/BaseMessage/defaultIcons/success",
+                      "default": "carbon:checkmark-filled"
+                    },
+                    "warning": {
+                      "type": "string",
+                      "id": "#appConfig/nui/BaseMessage/defaultIcons/warning",
+                      "default": "ci:warning"
+                    },
+                    "danger": {
+                      "type": "string",
+                      "id": "#appConfig/nui/BaseMessage/defaultIcons/danger",
+                      "default": "ph:warning-octagon-fill"
+                    },
+                    "primary": {
+                      "type": "string",
+                      "id": "#appConfig/nui/BaseMessage/defaultIcons/primary",
+                      "default": "akar-icons:info-fill"
+                    }
+                  },
+                  "type": "object",
+                  "default": {
+                    "muted": "akar-icons:info-fill",
+                    "muted-contrast": "akar-icons:info-fill",
+                    "default": "akar-icons:info-fill",
+                    "default-contrast": "akar-icons:info-fill",
+                    "info": "akar-icons:info-fill",
+                    "success": "carbon:checkmark-filled",
+                    "warning": "ci:warning",
+                    "danger": "ph:warning-octagon-fill",
+                    "primary": "akar-icons:info-fill"
+                  }
                 }
               },
               "type": "object",
               "default": {
                 "color": "default",
-                "rounded": "sm"
+                "rounded": "sm",
+                "defaultIcons": {
+                  "muted": "akar-icons:info-fill",
+                  "muted-contrast": "akar-icons:info-fill",
+                  "default": "akar-icons:info-fill",
+                  "default-contrast": "akar-icons:info-fill",
+                  "info": "akar-icons:info-fill",
+                  "success": "carbon:checkmark-filled",
+                  "warning": "ci:warning",
+                  "danger": "ph:warning-octagon-fill",
+                  "primary": "akar-icons:info-fill"
+                }
               }
             },
             "BasePagination": {
@@ -1795,7 +1872,7 @@
                   "title": "The color of the snack.",
                   "description": "",
                   "tags": [],
-                  "tsType": "'default' | 'muted'",
+                  "tsType": "'default' | 'default-contrast' | 'muted' | 'muted-contrast'",
                   "id": "#appConfig/nui/BaseSnack/color",
                   "default": "default",
                   "type": "string"
@@ -2247,13 +2324,48 @@
                   "id": "#appConfig/nui/BaseInputFile/size",
                   "default": "md",
                   "type": "string"
+                },
+                "i18n": {
+                  "title": "The translation strings for the input file.",
+                  "description": "",
+                  "tags": [],
+                  "tsType": "{ empty: string; invalid: string; multiple: string }",
+                  "id": "#appConfig/nui/BaseInputFile/i18n",
+                  "properties": {
+                    "empty": {
+                      "type": "string",
+                      "id": "#appConfig/nui/BaseInputFile/i18n/empty",
+                      "default": "No file chosen"
+                    },
+                    "invalid": {
+                      "type": "string",
+                      "id": "#appConfig/nui/BaseInputFile/i18n/invalid",
+                      "default": "Invalid file selected"
+                    },
+                    "multiple": {
+                      "type": "string",
+                      "id": "#appConfig/nui/BaseInputFile/i18n/multiple",
+                      "default": "{count} files selected"
+                    }
+                  },
+                  "type": "object",
+                  "default": {
+                    "empty": "No file chosen",
+                    "invalid": "Invalid file selected",
+                    "multiple": "{count} files selected"
+                  }
                 }
               },
               "type": "object",
               "default": {
                 "contrast": "default",
                 "rounded": "sm",
-                "size": "md"
+                "size": "md",
+                "i18n": {
+                  "empty": "No file chosen",
+                  "invalid": "Invalid file selected",
+                  "multiple": "{count} files selected"
+                }
               }
             },
             "BaseInputFileHeadless": {
@@ -2297,6 +2409,24 @@
                 "contrast": "default",
                 "rounded": "sm",
                 "size": "md"
+              }
+            },
+            "BaseInputHelpText": {
+              "id": "#appConfig/nui/BaseInputHelpText",
+              "properties": {
+                "color": {
+                  "title": "The color of the text.",
+                  "description": "",
+                  "tags": [],
+                  "tsType": "'default' | 'default-contrast' | 'muted' | 'muted-contrast' | 'light' | 'dark' | 'black' | 'primary' | 'info' | 'success' | 'warning' | 'danger' | 'none'",
+                  "id": "#appConfig/nui/BaseInputHelpText/color",
+                  "default": "default",
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "default": {
+                "color": "default"
               }
             },
             "BaseListbox": {
@@ -2587,7 +2717,18 @@
             "BaseListItem": {},
             "BaseMessage": {
               "color": "default",
-              "rounded": "sm"
+              "rounded": "sm",
+              "defaultIcons": {
+                "muted": "akar-icons:info-fill",
+                "muted-contrast": "akar-icons:info-fill",
+                "default": "akar-icons:info-fill",
+                "default-contrast": "akar-icons:info-fill",
+                "info": "akar-icons:info-fill",
+                "success": "carbon:checkmark-filled",
+                "warning": "ci:warning",
+                "danger": "ph:warning-octagon-fill",
+                "primary": "akar-icons:info-fill"
+              }
             },
             "BasePagination": {
               "color": "primary",
@@ -2678,13 +2819,21 @@
             "BaseInputFile": {
               "contrast": "default",
               "rounded": "sm",
-              "size": "md"
+              "size": "md",
+              "i18n": {
+                "empty": "No file chosen",
+                "invalid": "Invalid file selected",
+                "multiple": "{count} files selected"
+              }
             },
             "BaseInputFileHeadless": {},
             "BaseInputNumber": {
               "contrast": "default",
               "rounded": "sm",
               "size": "md"
+            },
+            "BaseInputHelpText": {
+              "color": "default"
             },
             "BaseListbox": {
               "contrast": "default",
@@ -2886,7 +3035,18 @@
           "BaseListItem": {},
           "BaseMessage": {
             "color": "default",
-            "rounded": "sm"
+            "rounded": "sm",
+            "defaultIcons": {
+              "muted": "akar-icons:info-fill",
+              "muted-contrast": "akar-icons:info-fill",
+              "default": "akar-icons:info-fill",
+              "default-contrast": "akar-icons:info-fill",
+              "info": "akar-icons:info-fill",
+              "success": "carbon:checkmark-filled",
+              "warning": "ci:warning",
+              "danger": "ph:warning-octagon-fill",
+              "primary": "akar-icons:info-fill"
+            }
           },
           "BasePagination": {
             "color": "primary",
@@ -2977,13 +3137,21 @@
           "BaseInputFile": {
             "contrast": "default",
             "rounded": "sm",
-            "size": "md"
+            "size": "md",
+            "i18n": {
+              "empty": "No file chosen",
+              "invalid": "Invalid file selected",
+              "multiple": "{count} files selected"
+            }
           },
           "BaseInputFileHeadless": {},
           "BaseInputNumber": {
             "contrast": "default",
             "rounded": "sm",
             "size": "md"
+          },
+          "BaseInputHelpText": {
+            "color": "default"
           },
           "BaseListbox": {
             "contrast": "default",
@@ -3187,7 +3355,18 @@
         "BaseListItem": {},
         "BaseMessage": {
           "color": "default",
-          "rounded": "sm"
+          "rounded": "sm",
+          "defaultIcons": {
+            "muted": "akar-icons:info-fill",
+            "muted-contrast": "akar-icons:info-fill",
+            "default": "akar-icons:info-fill",
+            "default-contrast": "akar-icons:info-fill",
+            "info": "akar-icons:info-fill",
+            "success": "carbon:checkmark-filled",
+            "warning": "ci:warning",
+            "danger": "ph:warning-octagon-fill",
+            "primary": "akar-icons:info-fill"
+          }
         },
         "BasePagination": {
           "color": "primary",
@@ -3278,13 +3457,21 @@
         "BaseInputFile": {
           "contrast": "default",
           "rounded": "sm",
-          "size": "md"
+          "size": "md",
+          "i18n": {
+            "empty": "No file chosen",
+            "invalid": "Invalid file selected",
+            "multiple": "{count} files selected"
+          }
         },
         "BaseInputFileHeadless": {},
         "BaseInputNumber": {
           "contrast": "default",
           "rounded": "sm",
           "size": "md"
+        },
+        "BaseInputHelpText": {
+          "color": "default"
         },
         "BaseListbox": {
           "contrast": "default",

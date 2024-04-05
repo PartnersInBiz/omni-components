@@ -73,9 +73,6 @@
     "moment": "^2.30.1",
     "nuxt-icon": "^0.6.10",
     "vee-validate": "^4.12.6",
-    "vue-dragscroll": "^4.0.5",
-    "vue-resizable": "^2.1.7",
-    "vuedraggable": "^2.24.3",
     "yup": "^1.4.0",
     "zod": "^3.22.4"
   }
