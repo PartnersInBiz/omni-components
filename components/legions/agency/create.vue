@@ -145,10 +145,13 @@ const onSubmit = handleSubmit(
       // fake delay, this will make isSubmitting value to be true
       values.agency.avatar = currentAvatar.value;
 
+      console.log("values", values.agency);
 
       values.agency.tools = tools.value;
+      console.log("values", values.agency);
 
       // let legion = await createLegion(values.agency)
+      console.log("legion!!!", legion);
 
       let data: any = {};
       if (props.isEditModal) {
@@ -168,7 +171,7 @@ const onSubmit = handleSubmit(
         closable: true,
       });
     } catch (error: any) {
-      
+      console.log("error", error);
       // this will set the error on the form
       if (error.message === "Fake backend validation error") {
         // @ts-expect-error - vee validate typing bug with nested keys
@@ -206,7 +209,7 @@ const onSubmit = handleSubmit(
   (error: any) => {
     // this callback is optional and called only if the form has errors
     success.value = false;
-    
+    console.log("ERROR", error);
     // here you have access to the error
     for (let i = 0; i < error.errors.length; i++) {
       let err = error.errors[i];

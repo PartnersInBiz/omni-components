@@ -97,28 +97,6 @@ const isEditAppState = useState("isEditAppState", () => {
   return false;
 });
 
-const { listenUp, removeListen } = useBuilders();
-
-watchEffect(() => {
-  if (isEditAppState.value) {
-    
-    setTimeout(() => {
-      listenUp(props.item_id);
-    }, 1000);
-  } else {
-    removeListen(props.item_id);
-  }
-});
-onMounted(() => {
-  if (isEditAppState.value) {
-    
-    setTimeout(() => {
-      listenUp(props.item_id);
-    }, 1000);
-  } else {
-    removeListen(props.item_id);
-  }
-});
 </script>
 
 <template>

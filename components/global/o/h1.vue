@@ -36,7 +36,6 @@ const divPropsLive = withDefaults(
      */
     lead?: "none" | "tight" | "snug" | "normal" | "relaxed" | "loose";
     innerText: string;
-    children?: object[];
   }>(),
   {
     size: undefined,
@@ -94,28 +93,7 @@ const isEditAppState = useState("isEditAppState", () => {
   return false;
 });
 
-const { listenUp, removeListen } = useBuilders();
 
-watchEffect(() => {
-  if (isEditAppState.value) {
-    
-    setTimeout(() => {
-      listenUp(divPropsLive.item_id);
-    }, 1000);
-  } else {
-    removeListen(divPropsLive.item_id);
-  }
-});
-onMounted(() => {
-  if (isEditAppState.value) {
-    
-    setTimeout(() => {
-      listenUp(divPropsLive.item_id);
-    }, 1000);
-  } else {
-    removeListen(divPropsLive.item_id);
-  }
-});
 </script>
 
 <template>

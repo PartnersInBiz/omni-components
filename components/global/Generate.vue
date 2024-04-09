@@ -12,7 +12,6 @@ defineProps<{
     :key="index"
     v-bind="comp.schema"
   >
-  <Icon name='ri:fire-fill' class='w-5 h-5 text-danger-500' />
     <template
       v-for="(slot, index) in comp.slots"
       :key="index"
