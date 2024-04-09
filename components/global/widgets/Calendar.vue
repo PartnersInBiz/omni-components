@@ -1,32 +1,30 @@
 <script setup lang='ts'>
-import { Calendar } from 'v-calendar'
+import { Calendar } from "v-calendar";
 
-import 'v-calendar/dist/style.css'
-import '~/assets/css/vcalendar.css'
+import "~/assets/css/vcalendar.css";
 
 const props = withDefaults(
   defineProps<{
-    shape?: 'straight' | 'rounded' | 'curved'
-    class?: string
-    attributes: any
-    titleposition: string
-    expanded: boolean
-    borderless: boolean
-    transparent: boolean
-    trimweeks: boolean
-    classcalendar: string
-    item_id: string
+    shape?: "straight" | "rounded" | "curved";
+    class?: string;
+    attributes: any;
+    titleposition: string;
+    expanded: boolean;
+    borderless: boolean;
+    transparent: boolean;
+    trimweeks: boolean;
+    classcalendar: string;
+    item_id: string;
   }>(),
   {
-    shape: 'rounded',
-    class: '',
-  },
-)
+    shape: "rounded",
+    class: "",
+  }
+);
 
 const classes = computed(() => {
-  return props.class
-})
-
+  return props.class;
+});
 </script>
 
 <template>
@@ -39,7 +37,6 @@ const classes = computed(() => {
       :transparent="transparent"
       :trim-weeks="trimweeks"
       :class="classcalendar"
-      
     />
   </BaseCard>
 </template>

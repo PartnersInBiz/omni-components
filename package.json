@@ -51,6 +51,7 @@
   },
   "dependencies": {
     "@cssninja/nuxt-toaster": "^0.3.12",
+    "@tauri-apps/api": "^1.5.3",
     "@vee-validate/zod": "^4.12.6",
     "@vueup/vue-quill": "^1.2.0",
     "@vueuse/components": "^10.9.0",

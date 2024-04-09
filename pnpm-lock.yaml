@@ -8,6 +8,9 @@ dependencies:
   '@cssninja/nuxt-toaster':
     specifier: ^0.3.12
     version: 0.3.12(vue@3.4.21)
+  '@tauri-apps/api':
+    specifier: ^1.5.3
+    version: 1.5.3
   '@vee-validate/zod':
     specifier: ^4.12.6
     version: 4.12.6(vue@3.4.21)
@@ -1430,9 +1433,6 @@ packages:
     engines: {node: ^14.18.0 || >=16.10.0}
     peerDependencies:
       vue: ^3.3.4
-    peerDependenciesMeta:
-      vue:
-        optional: true
     dependencies:
       '@nuxt/kit': 3.11.2
       '@rollup/plugin-replace': 5.0.5(rollup@4.14.1)
@@ -2045,6 +2045,11 @@ packages:
       '@tanstack/virtual-core': 3.2.0
       vue: 3.4.21
     dev: true
+
+  /@tauri-apps/api@1.5.3:
+    resolution: {integrity: sha512-zxnDjHHKjOsrIzZm6nO5Xapb/BxqUq1tc7cGkFXsFkGTsSWgCPH1D8mm0XS9weJY2OaR73I3k3S+b7eSzJDfqA==}
+    engines: {node: '>= 14.6.0', npm: '>= 6.6.0', yarn: '>= 1.19.1'}
+    dev: false
 
   /@trysound/sax@0.2.0:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
