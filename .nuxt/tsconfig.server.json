@@ -34,9 +34,6 @@
       "nitropack": [
         "../node_modules/.pnpm/nitropack@2.9.6/node_modules/nitropack"
       ],
-      "defu": [
-        "../node_modules/.pnpm/defu@6.1.4/node_modules/defu"
-      ],
       "h3": [
         "../node_modules/.pnpm/h3@1.11.1/node_modules/h3"
       ],
@@ -68,10 +65,10 @@
         "../node_modules/.pnpm/@nuxt+schema@3.11.2/node_modules/@nuxt/schema"
       ],
       "nuxt": [
-        "../node_modules/.pnpm/nuxt@3.11.2_@parcel+watcher@2.4.1_@types+node@20.12.4_@unocss+reset@0.58.9_floating-vue@5.2.2_unocss@0.58.9_vite@5.2.8/node_modules/nuxt"
+        "../node_modules/.pnpm/nuxt@3.11.2_@parcel+watcher@2.4.1_@types+node@20.12.6_@unocss+reset@0.59.0_floating-vue@5.2.2_unocss@0.59.0_vite@5.2.8/node_modules/nuxt"
       ],
       "#internal/nuxt/paths": [
-        "../node_modules/.pnpm/nuxt@3.11.2_@parcel+watcher@2.4.1_@types+node@20.12.4_@unocss+reset@0.58.9_floating-vue@5.2.2_unocss@0.58.9_vite@5.2.8/node_modules/nuxt/dist/core/runtime/nitro/paths"
+        "../node_modules/.pnpm/nuxt@3.11.2_@parcel+watcher@2.4.1_@types+node@20.12.6_@unocss+reset@0.59.0_floating-vue@5.2.2_unocss@0.59.0_vite@5.2.8/node_modules/nuxt/dist/core/runtime/nitro/paths"
       ],
       "~": [
         "./.."
@@ -113,7 +110,6 @@
     "../node_modules/.pnpm/@nuxtjs+color-mode@3.3.3/node_modules/@nuxtjs/color-mode/runtime/server",
     "../node_modules/.pnpm/@nuxtjs+tailwindcss@6.11.4/node_modules/@nuxtjs/tailwindcss/runtime/server",
     "../node_modules/.pnpm/nuxt-icon@0.6.10_nuxt@3.11.2_vite@5.2.8_vue@3.4.21/node_modules/nuxt-icon/runtime/server",
-    "../node_modules/.pnpm/@nuxt+devtools@1.1.5_@unocss+reset@0.58.9_floating-vue@5.2.2_nuxt@3.11.2_unocss@0.58.9_vite@5.2.8_vue@3.4.21/node_modules/@nuxt/devtools/runtime/server",
     "../node_modules/.pnpm/@nuxt+telemetry@2.5.3/node_modules/@nuxt/telemetry/runtime/server",
     "./types/nitro.d.ts",
     "../**/*",
@@ -121,7 +117,7 @@
   ],
   "exclude": [
     "../node_modules",
-    "../node_modules/.pnpm/nuxt@3.11.2_@parcel+watcher@2.4.1_@types+node@20.12.4_@unocss+reset@0.58.9_floating-vue@5.2.2_unocss@0.58.9_vite@5.2.8/node_modules/nuxt/node_modules",
+    "../node_modules/.pnpm/nuxt@3.11.2_@parcel+watcher@2.4.1_@types+node@20.12.6_@unocss+reset@0.59.0_floating-vue@5.2.2_unocss@0.59.0_vite@5.2.8/node_modules/nuxt/node_modules",
     "../dist"
   ]
 }

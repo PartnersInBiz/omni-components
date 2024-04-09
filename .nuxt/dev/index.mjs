@@ -967,27 +967,10 @@ function getRouteRulesForPath(path) {
   return defu({}, ..._routeRulesMatcher.matchAll(path).reverse());
 }
 
-const script$1 = `
-if (!window.__NUXT_DEVTOOLS_TIME_METRIC__) {
-  Object.defineProperty(window, '__NUXT_DEVTOOLS_TIME_METRIC__', {
-    value: {},
-    enumerable: false,
-    configurable: true,
-  })
-}
-window.__NUXT_DEVTOOLS_TIME_METRIC__.appInit = Date.now()
-`;
-
-const _0USP5bM58e = (function(nitro) {
-  nitro.hooks.hook("render:html", (htmlContext) => {
-    htmlContext.head.push(`<script>${script$1}<\/script>`);
-  });
-});
-
 const rootDir = "/Users/peetstander/Projects/omni-components";
 
 const asyncContext = getContext("nuxt-dev", { asyncContext: true, AsyncLocalStorage });
-const _wvLSLpBPjc = (nitroApp) => {
+const _jIpL0mWIay = (nitroApp) => {
   const handler = nitroApp.h3App.handler;
   nitroApp.h3App.handler = (event) => {
     return asyncContext.callAsync({ logs: [], event }, () => handler(event));
@@ -1061,8 +1044,7 @@ const _y9Bh3dwTC1 = (function(nitro) {
 });
 
 const plugins = [
-  _0USP5bM58e,
-_wvLSLpBPjc,
+  _jIpL0mWIay,
 _y9Bh3dwTC1
 ];
 
@@ -1194,12 +1176,12 @@ const errorHandler = (async function errorhandler(error, event) {
 });
 
 const _lazy_FaZuU1 = () => Promise.resolve().then(function () { return sms_post$1; });
-const _lazy_8tR1hJ = () => Promise.resolve().then(function () { return renderer$1; });
+const _lazy_9GCAvF = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
   { route: '/api/twilio/sms', handler: _lazy_FaZuU1, lazy: true, middleware: false, method: "post" },
-  { route: '/__nuxt_error', handler: _lazy_8tR1hJ, lazy: true, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_8tR1hJ, lazy: true, middleware: false, method: undefined }
+  { route: '/__nuxt_error', handler: _lazy_9GCAvF, lazy: true, middleware: false, method: undefined },
+  { route: '/**', handler: _lazy_9GCAvF, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {
